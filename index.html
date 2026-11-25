@@ -4,35 +4,68 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#101827">
-<title>SoloBiz OS 3.6</title>
+<title>SoloBiz OS 3.7</title>
 <style>
 :root{--bg:#0b1422;--panel:#17263a;--panel2:#21364f;--text:#f1f5f9;--muted:#a6b6ca;--blue:#438cff;--green:#12b886;--red:#e34d61}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
-header{background:#08111e;padding:15px;border-bottom:1px solid #34445a;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-h1{font-size:21px;margin:0}small,.muted{color:var(--muted)}main{max-width:1100px;margin:auto;padding:12px}
-nav{display:flex;overflow-x:auto;gap:7px;padding:12px 0}button{border:0;border-radius:9px;background:var(--blue);color:#fff;padding:11px 14px;font-weight:bold;cursor:pointer}
-nav button{background:#263a52;white-space:nowrap}nav button.active{background:var(--blue)}
-button.green{background:var(--green)}button.gray{background:#475b73}button.red{background:var(--red)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+header{background:#08111e;padding:20px 14px;border-bottom:1px solid #34445a;display:flex;flex-direction:column;align-items:center;text-align:center;gap:13px}
+header h1{font-size:clamp(32px,6vw,40px);margin:0;font-weight:900;font-style:italic;letter-spacing:1px;color:#64a5ff;text-shadow:0 0 8px #438cff,0 0 22px #2563eb,0 0 35px #1d4ed8}
+header small{display:block;color:#b7c9df;font-size:14px;margin-top:5px}
+header .row{justify-content:center;align-items:center;width:100%;max-width:360px}
+header .row>*{flex:0 1 auto}
+header select{width:110px!important;margin:0}
+header button{min-width:100px}
+small,.muted{color:var(--muted)}
+main{max-width:1100px;margin:auto;padding:12px}
+nav{display:flex;overflow-x:auto;gap:7px;padding:12px 0}
+button{border:0;border-radius:9px;background:var(--blue);color:#fff;padding:11px 14px;font-weight:bold;cursor:pointer}
+nav button{background:#263a52;white-space:nowrap}
+nav button.active{background:var(--blue)}
+button.green{background:var(--green)}
+button.gray{background:#475b73}
+button.red{background:var(--red)}
 input,select,textarea{width:100%;padding:12px;border:1px solid #40546c;border-radius:9px;background:#0e1b2c;color:white;margin-top:5px;font:inherit}
 label{display:block;font-size:13px;color:var(--muted);margin:10px 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}
 .formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
 .card{background:var(--panel);border:1px solid #34445a;border-radius:13px;padding:14px;margin:10px 0}
-.card h3{margin:0 0 12px;color:var(--muted);font-size:14px}.big{font-size:24px;font-weight:bold}.title{font-size:19px;margin:12px 0}
-.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row>*{flex:1}
+.card h3{margin:0 0 12px;color:var(--muted);font-size:14px}
+.big{font-size:24px;font-weight:bold}
+.title{font-size:19px;margin:12px 0}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.row>*{flex:1}
 .item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #34445a}
-.item button{flex:0 0 auto}.hidden{display:none!important}.notice{background:#213b55;padding:12px;border-radius:10px;font-size:13px;line-height:1.5}
+.item button{flex:0 0 auto}
+.hidden{display:none!important}
+.notice{background:#213b55;padding:12px;border-radius:10px;font-size:13px;line-height:1.5}
 .logoPreview{width:90px;height:90px;object-fit:contain;border:1px dashed #52657a;border-radius:10px;background:white;padding:5px}
-.bar{height:10px;background:#34445a;border-radius:20px;overflow:hidden;margin:8px 0}.bar span{display:block;height:100%;background:var(--green)}
-footer{text-align:center;padding:25px;color:var(--muted);font-size:12px}.detailStat{background:#21364f;padding:10px;border-radius:9px;min-width:120px;flex:1}
-@media(max-width:500px){h1{font-size:18px}main{padding:9px}.big{font-size:21px}button{padding:10px}.item{align-items:flex-start}.item>div:last-child{display:flex;flex-wrap:wrap;justify-content:flex-end}}
+.bar{height:10px;background:#34445a;border-radius:20px;overflow:hidden;margin:8px 0}
+.bar span{display:block;height:100%;background:var(--green)}
+footer{text-align:center;padding:25px;color:var(--muted);font-size:12px}
+.detailStat{background:#21364f;padding:10px;border-radius:9px;min-width:120px;flex:1}
+@media(max-width:500px){
+header{padding:18px 10px}
+header h1{font-size:32px}
+header small{font-size:12px}
+main{padding:9px}
+.big{font-size:21px}
+button{padding:10px}
+.item{align-items:flex-start}
+.item>div:last-child{display:flex;flex-wrap:wrap;justify-content:flex-end}
+}
 </style>
 </head>
 <body>
 <header>
- <div><h1>🚀 SoloBiz OS</h1><small>One Platform. Everything to Run Your Business.</small></div>
- <div class="row" style="flex:0 0 auto">
-  <select id="currency" style="width:95px"><option>INR</option><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option><option>SGD</option><option>AED</option><option>SAR</option><option>JPY</option><option>BDT</option><option>PKR</option><option>NPR</option><option>LKR</option></select>
+ <div>
+  <h1>🚀 SoloBiz OS</h1>
+  <small>One Platform. Everything to Run Your Business.</small>
+ </div>
+ <div class="row">
+  <select id="currency">
+   <option>INR</option><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option><option>SGD</option><option>AED</option><option>SAR</option><option>JPY</option><option>BDT</option><option>PKR</option><option>NPR</option><option>LKR</option>
+  </select>
   <button class="gray" id="langBtn">English</button>
  </div>
 </header>
@@ -43,10 +76,14 @@ footer{text-align:center;padding:25px;color:var(--muted);font-size:12px}.detailS
 <section id="home" class="page">
 <h2 class="title">Business Dashboard</h2>
 <div class="grid">
-<div class="card"><h3>Total Sales (Paid)</h3><div class="big" id="sales">0</div></div><div class="card"><h3>Total Expenses</h3><div class="big" id="expenseTotal">0</div></div><div class="card"><h3>Estimated Profit</h3><div class="big" id="profit">0</div></div><div class="card"><h3>Customers</h3><div class="big" id="customerTotal">0</div></div><div class="card"><h3>Total Invoices</h3><div class="big" id="invoiceTotal">0</div></div><div class="card"><h3>Unpaid</h3><div class="big" id="unpaidTotal">0</div></div>
+<div class="card"><h3>Total Sales (Paid)</h3><div class="big" id="sales">0</div></div>
+<div class="card"><h3>Total Expenses</h3><div class="big" id="expenseTotal">0</div></div>
+<div class="card"><h3>Estimated Profit</h3><div class="big" id="profit">0</div></div>
+<div class="card"><h3>Customers</h3><div class="big" id="customerTotal">0</div></div>
+<div class="card"><h3>Total Invoices</h3><div class="big" id="invoiceTotal">0</div></div>
+<div class="card"><h3>Unpaid</h3><div class="big" id="unpaidTotal">0</div></div>
 </div>
 <div class="card"><h3>Recent Invoices</h3><div id="recent"></div></div>
-
 </section>
 <section id="profile" class="page hidden">
 <h2 class="title">Business Profile</h2><div class="card"><form id="profileForm">
@@ -99,79 +136,4 @@ footer{text-align:center;padding:25px;color:var(--muted);font-size:12px}.detailS
 <div class="card"><h3>Data Management</h3><button class="red" id="clearBtn">Delete All Data</button></div>
 </section>
 </main>
-<div id="printArea" class="hidden"></div><footer>SoloBiz OS · Business Management · Version 3.6</footer>
-<script>
-const KEY="solobiz_os_v3",OLDKEY="solobiz_os_v2",$=id=>document.getElementById(id),today=()=>new Date().toISOString().slice(0,10);
-let currency=localStorage.getItem("solobiz_currency")||"INR",lang=localStorage.getItem("solobiz_lang")||"hi";
-let data={profile:{name:"SoloBiz Services",phone:"",email:"",address:"",website:"",logo:""},customers:[],invoices:[],quotes:[],expenses:[]};
-function id(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
-function loadData(){try{let saved=JSON.parse(localStorage.getItem(KEY)||"null");if(!saved)saved=JSON.parse(localStorage.getItem(OLDKEY)||"null");if(!saved){saved=JSON.parse(localStorage.getItem("solobiz_os_v1")||"null");if(saved)localStorage.setItem("solobiz_old_backup_copy",JSON.stringify(saved))}
-if(saved&&typeof saved==="object"){data.customers=Array.isArray(saved.customers)?saved.customers:[];data.invoices=Array.isArray(saved.invoices)?saved.invoices:[];data.quotes=Array.isArray(saved.quotes)?saved.quotes:[];data.expenses=Array.isArray(saved.expenses)?saved.expenses:[];data.profile={...data.profile,...(saved.profile||{})}}
-data.invoices.forEach(autoCustomer)}catch(e){console.log("Data load issue",e)}}
-function save(){localStorage.setItem(KEY,JSON.stringify(data));render()}
-function money(n){try{return new Intl.NumberFormat(undefined,{style:"currency",currency:currency,maximumFractionDigits:2}).format(Number(n)||0)}catch(e){return currency+" "+(Number(n)||0)}}
-function safe(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function subtotal(x){if(Array.isArray(x.items)&&x.items.length)return x.items.reduce((s,i)=>s+(Number(i.qty)||0)*(Number(i.rate)||0),0);return (Number(x.qty)||0)*(Number(x.rate)||0)}
-function gstAmount(x){return subtotal(x)*(Number(x.gstRate)||0)/100}
-function total(x){return subtotal(x)+gstAmount(x)}
-function paidAmount(x){if(Array.isArray(x.payments))return x.payments.reduce((s,p)=>s+(Number(p.amount)||0),0);return x.status==="Paid"?total(x):0}
-function dueAmount(x){return Math.max(0,total(x)-paidAmount(x))}
-function paymentHistoryHtml(x){let ps=Array.isArray(x.payments)?x.payments:[];if(!ps.length&&x.status==="Paid")return '<small>Legacy record: marked Paid (payment date not separately recorded)</small>';return ps.length?ps.map(p=>`<div><small>${safe(p.date||"")} · ${money(p.amount)}${p.note?" · "+safe(p.note):""}</small></div>`).join(""):'<small>No payments recorded yet</small>'}
-function formObj(f){return Object.fromEntries(new FormData(f).entries())}
-function autoCustomer(x){let name=String(x.customer||"").trim();if(!name)return;let email=String(x.email||"").trim().toLowerCase();let phone=String(x.phone||"").trim();let found=data.customers.find(c=>String(c.name||"").trim().toLowerCase()===name.toLowerCase()||(email&&String(c.email||"").trim().toLowerCase()===email));if(!found){found={id:id(),name,email:x.email||"",phone,country:"",source:"invoice"};data.customers.unshift(found)}else{if(email&&!found.email)found.email=x.email;if(phone&&!found.phone)found.phone=phone}if(!x.phone&&found.phone)x.phone=found.phone}
-function findCustomer(name,email){return data.customers.find(c=>String(c.name||"").trim().toLowerCase()===String(name||"").trim().toLowerCase()||(email&&String(c.email||"").trim().toLowerCase()===String(email).trim().toLowerCase()))}
-function fillCustomerPhone(){let f=$("invoiceForm"),c=findCustomer(f.customer.value,f.email.value);if(c&&c.phone)f.phone.value=c.phone}
-document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".page").forEach(x=>x.classList.add("hidden"));b.classList.add("active");$(b.dataset.page).classList.remove("hidden")});
-$("currency").value=currency;$("currency").onchange=e=>{currency=e.target.value;localStorage.setItem("solobiz_currency",currency);render()};
-$("langBtn").textContent=lang==="hi"?"English":"हिंदी";$("langBtn").onclick=()=>{lang=lang==="hi"?"en":"hi";localStorage.setItem("solobiz_lang",lang);$("langBtn").textContent=lang==="hi"?"English":"हिंदी";alert(lang==="en"?"Language preference saved.":"भाषा सेटिंग सेव हो गई।")};
-function profileFormFill(){let f=$("profileForm");Object.keys(data.profile).forEach(k=>{if(f.elements[k])f.elements[k].value=data.profile[k]||""});if(data.profile.logo){$("logoPreview").src=data.profile.logo;$("logoPreview").classList.remove("hidden")}else $("logoPreview").classList.add("hidden")}
-$("profileForm").onsubmit=e=>{e.preventDefault();data.profile={...data.profile,...formObj(e.target)};save();alert("Business Profile Saved!")};
-$("logoFile").onchange=e=>{let file=e.target.files[0];if(!file)return;if(file.size>1500000){alert("Logo file 1.5MB से छोटा रखें।");e.target.value="";return}let reader=new FileReader();reader.onload=()=>{data.profile.logo=reader.result;$("logoPreview").src=reader.result;$("logoPreview").classList.remove("hidden");save()};reader.readAsDataURL(file)};
-$("removeLogo").onclick=()=>{data.profile.logo="";$("logoPreview").classList.add("hidden");save()};
-$("invoiceForm").date.value=today();$("quoteForm").date.value=today();$("expenseForm").date.value=today();
-function addInvoiceItemRow(desc="",qty=1,rate=""){let wrap=document.createElement("div");wrap.className="formgrid invoice-item-row";wrap.style.cssText="border:1px solid #dbe3ee;padding:10px;border-radius:10px;margin:8px 0";wrap.innerHTML=`<label>Item / Service<input class="item-desc" required value="${safe(desc)}" placeholder="Product or service"></label><label>Quantity<input class="item-qty" type="number" min="1" step="1" value="${qty}" required></label><label>Rate per unit<input class="item-rate" type="number" min="0" step="0.01" value="${rate}" required></label><button type="button" class="red remove-item">Remove</button>`;$("invoiceItems").appendChild(wrap);wrap.querySelectorAll("input").forEach(i=>i.addEventListener("input",updateInvoicePreview));wrap.querySelector(".remove-item").onclick=()=>{if(document.querySelectorAll(".invoice-item-row").length<=1){alert("कम से कम एक आइटम जरूरी है।");return}wrap.remove();updateInvoicePreview()};updateInvoicePreview()}
-function invoiceDraft(){let items=[...document.querySelectorAll(".invoice-item-row")].map(r=>({description:r.querySelector(".item-desc").value,qty:Number(r.querySelector(".item-qty").value)||0,rate:Number(r.querySelector(".item-rate").value)||0}));return {items,gstRate:Number($("invoiceForm").gstRate.value)||0}}
-function updateInvoicePreview(){let x=invoiceDraft(),sub=x.items.reduce((a,i)=>a+i.qty*i.rate,0),gst=sub*x.gstRate/100;$("invoiceSubtotal").textContent=money(sub);$("gstPreview").value=money(gst);$("invoiceGrand").textContent=money(sub+gst)}
-$("addInvoiceItem").onclick=()=>addInvoiceItemRow();$("invoiceForm").gstRate.onchange=updateInvoicePreview;addInvoiceItemRow();
-$("invoiceForm").customer.onchange=fillCustomerPhone;$("invoiceForm").email.onchange=fillCustomerPhone;
-$("invoiceForm").onsubmit=e=>{e.preventDefault();let f=formObj(e.target),draft=invoiceDraft(),items=draft.items.filter(i=>i.description.trim()&&i.qty>0);if(!items.length){alert("कम से कम एक सही Item जोड़ें।");return}let x={id:id(),customer:f.customer,email:f.email,phone:f.phone,number:f.number||"INV-"+String(data.invoices.length+1).padStart(3,"0"),date:f.date,status:f.status,items,gstRate:draft.gstRate,description:items.map(i=>i.description).join(", "),qty:1,rate:items.reduce((a,i)=>a+i.qty*i.rate,0),currency,payments:[]};if(f.status==="Paid")x.payments.push({id:id(),date:f.date,amount:total(x),note:"Paid when invoice created"});data.invoices.unshift(x);autoCustomer(x);e.target.reset();e.target.date.value=today();$("invoiceItems").innerHTML="";addInvoiceItemRow();save();alert("Invoice saved successfully!")};
-$("quoteForm").onsubmit=e=>{e.preventDefault();let f=formObj(e.target),x={id:id(),customer:f.customer,number:f.number||"QUO-"+String(data.quotes.length+1).padStart(3,"0"),date:f.date,description:f.description,qty:Number(f.qty),rate:Number(f.rate),currency};data.quotes.unshift(x);e.target.reset();e.target.date.value=today();e.target.qty.value=1;save();alert("Quotation saved!")};
-$("customerForm").onsubmit=e=>{e.preventDefault();let f=formObj(e.target),exists=data.customers.some(c=>String(c.name||"").trim().toLowerCase()===f.name.trim().toLowerCase());if(exists){alert("यह ग्राहक पहले से मौजूद है।");return}data.customers.unshift({id:id(),...f});e.target.reset();save()};
-$("expenseForm").onsubmit=e=>{e.preventDefault();let f=formObj(e.target);data.expenses.unshift({id:id(),description:f.description,amount:Number(f.amount),date:f.date,currency});e.target.reset();e.target.date.value=today();save()};
-function deleteItem(type,key){if(!confirm("क्या आप इस रिकॉर्ड को हटाना चाहते हैं?"))return;data[type]=data[type].filter(x=>x.id!==key);if(type==="customers"&&selectedCustomer===key){selectedCustomer=null;$("customerDetail").classList.add("hidden")}save()}
-function printDoc(type,key){
- let arr=type==="invoice"?data.invoices:data.quotes,x=arr.find(v=>v.id===key);if(!x)return;
- let p=data.profile||{},isInvoice=type==="invoice",title=isInvoice?"INVOICE":"QUOTATION",grand=total(x),received=paidAmount(x),balance=dueAmount(x),customerPhone=x.phone||findCustomer(x.customer,x.email)?.phone||"";
- let logo=p.logo?`<img class="brand-logo" src="${p.logo}" alt="Business logo">`:"";
- let businessContact=[p.phone,p.email,p.website].filter(Boolean).map(safe).join(" &nbsp; | &nbsp; ");
- let html=`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title} ${safe(x.number)}</title><style>
- @page{size:A4;margin:14mm}*{box-sizing:border-box}body{margin:0;color:#172033;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.5;background:#fff}.sheet{max-width:780px;margin:0 auto;padding:8px}.top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;border-bottom:3px solid #1e4f91;padding:8px 0 18px}.brand{display:flex;gap:15px;align-items:center;min-width:0}.brand-logo{width:88px;height:88px;object-fit:contain}.brand h2{font-size:21px;margin:0 0 5px;color:#163b68}.brand p{margin:2px 0;color:#526174}.doc-title{text-align:right;flex-shrink:0}.doc-title h1{font-size:30px;letter-spacing:2px;color:#1e4f91;margin:0}.doc-title p{margin:5px 0;color:#526174}.meta{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}.panel{background:#f3f6fa;border:1px solid #e1e7ef;border-radius:8px;padding:13px}.label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#718096;font-weight:bold;margin-bottom:5px}.panel strong{font-size:14px;color:#172033}.panel p{margin:3px 0;color:#526174}.items{width:100%;border-collapse:collapse;margin:18px 0}.items th{background:#1e4f91;color:#fff;text-align:left;padding:11px 9px;font-size:11px}.items td{padding:12px 9px;border-bottom:1px solid #e2e8f0}.items .num{text-align:right;white-space:nowrap}.totals{width:290px;margin:12px 0 12px auto;border-collapse:collapse}.totals td{padding:7px 9px;border-bottom:1px solid #e6ebf1}.totals td:last-child{text-align:right;font-weight:bold}.totals .grand td{font-size:16px;color:#163b68;border-top:2px solid #1e4f91;border-bottom:0;padding-top:12px}.payment{margin-top:18px;background:#f3f6fa;border-left:4px solid #1e4f91;padding:13px}.payment-row{display:flex;justify-content:space-between;gap:10px;margin:4px 0}.footer{border-top:1px solid #e1e7ef;margin-top:36px;padding-top:14px;display:flex;justify-content:space-between;gap:20px;color:#64748b}.thanks{text-align:center;font-size:14px;font-weight:bold;color:#1e4f91;margin-top:28px}.sign{text-align:right;margin-top:34px;color:#526174}.sign span{display:inline-block;border-top:1px solid #8b98a9;padding:7px 18px 0}.muted{color:#64748b}@media(max-width:560px){.top{gap:8px}.brand-logo{width:58px;height:58px}.brand h2{font-size:16px}.doc-title h1{font-size:21px}.meta{gap:8px}.panel{padding:9px}.items th,.items td{padding:8px 5px;font-size:10px}.totals{width:100%;max-width:290px}}@media print{body{print-color-adjust:exact;-webkit-print-color-adjust:exact}.sheet{max-width:none;padding:0}}
- </style></head><body><main class="sheet">
- <section class="top"><div class="brand">${logo}<div><h2>${safe(p.name||"Your Business")}</h2><p>${safe(p.address||"")}</p><p>${businessContact}</p></div></div><div class="doc-title"><h1>${title}</h1><p><b>No:</b> ${safe(x.number||"-")}</p><p><b>Date:</b> ${safe(x.date||"-")}</p></div></section>
- <section class="meta"><div class="panel"><div class="label">Bill To</div><strong>${safe(x.customer||"Customer")}</strong><p>${safe(x.email||"")}</p><p>${safe(customerPhone)}</p></div><div class="panel"><div class="label">${isInvoice?"Payment Status":"Quotation Details"}</div><strong>${isInvoice?safe(x.status||"Unpaid"):"Quotation"}</strong><p>${isInvoice?"Please refer to the amount due below.":"Thank you for considering our quotation."}</p></div></section>
- <table class="items"><thead><tr><th style="width:48%">Description</th><th class="num">Quantity</th><th class="num">Rate</th><th class="num">Amount</th></tr></thead><tbody>${(Array.isArray(x.items)&&x.items.length?x.items:[{description:x.description||"Service / Product",qty:x.qty,rate:x.rate}]).map(i=>`<tr><td><b>${safe(i.description)}</b></td><td class="num">${Number(i.qty)||0}</td><td class="num">${money(i.rate)}</td><td class="num"><b>${money((Number(i.qty)||0)*(Number(i.rate)||0))}</b></td></tr>`).join("")}</tbody></table>
- <table class="totals"><tr><td>Subtotal</td><td>${money(subtotal(x))}</td></tr>${Number(x.gstRate)>0?`<tr><td>GST (${Number(x.gstRate)}%)</td><td>${money(gstAmount(x))}</td></tr>`:""}<tr class="grand"><td>Total</td><td>${money(grand)}</td></tr></table>
- ${isInvoice?`<section class="payment"><div class="label">Payment Summary</div><div class="payment-row"><span>Total Amount</span><b>${money(grand)}</b></div><div class="payment-row"><span>Amount Received</span><b>${money(received)}</b></div><div class="payment-row"><span>Balance Due</span><b>${money(balance)}</b></div></section>`:""}
- <p class="thanks">Thank you for your business!</p><div class="sign"><span>Authorized Signature</span></div><footer class="footer"><span>${safe(p.name||"Your Business")}</span><span>${safe(p.phone||"")} ${p.email?" · "+safe(p.email):""}</span></footer>
- </main><script>window.onload=function(){setTimeout(function(){window.focus();window.print()},450)};<\/script></body></html>`;
- let w=window.open("","_blank");if(!w){alert("इस साइट के लिए Pop-ups अनुमति दें, फिर Print दबाएँ।");return}w.document.open();w.document.write(html);w.document.close();
-}
-function shareInvoice(key){let x=data.invoices.find(v=>v.id===key);if(!x)return;let customer=data.customers.find(c=>String(c.name||"").trim().toLowerCase()===String(x.customer||"").trim().toLowerCase()||(x.email&&String(c.email||"").trim().toLowerCase()===String(x.email).trim().toLowerCase()));let raw=String(x.phone||customer?.phone||"").trim();let phone=raw.replace(/[^0-9]/g,"");if(!raw){alert("इस ग्राहक का फोन नंबर उपलब्ध नहीं है। पहले Customer में उसका Phone नंबर जोड़ें या Invoice में नंबर भरें।");return}if(phone.length<10||phone.length>15){alert("कृपया देश कोड सहित सही WhatsApp नंबर डालें, जैसे +91 9876543210।");return}let p=data.profile||{},message=`Hello ${x.customer},\n\nYour invoice from ${p.name||"our business"}:\nInvoice: ${x.number}\nDate: ${x.date}\nItems:\n${(Array.isArray(x.items)&&x.items.length?x.items:[{description:x.description||"Item",qty:x.qty||1,rate:x.rate||0}]).map(i=>`${i.description} — ${i.qty} × ${money(i.rate)} = ${money((Number(i.qty)||0)*(Number(i.rate)||0))}`).join("\n")}\nSubtotal: ${money(subtotal(x))}\n${Number(x.gstRate)>0?`GST (${Number(x.gstRate)}%): ${money(gstAmount(x))}\n`:""}Total: ${money(total(x))}\nPayment Status: ${x.status}\nAmount Received: ${money(paidAmount(x))}\nBalance Due: ${money(dueAmount(x))}\n\n${p.phone?"Business Phone: "+p.phone+"\n":""}Thank you for your business!`;let url="https://wa.me/"+phone+"?text="+encodeURIComponent(message);let w=window.open(url,"_blank");if(!w)location.href=url}
-function docs(type){let arr=type==="invoice"?data.invoices:data.quotes;if(!arr.length)return '<p class="muted">No records yet.</p>';return arr.map(x=>`<div class="item"><div><b>${safe(x.number)}</b><br><small>${safe(x.customer)} · ${safe(x.date)}<br>Phone: ${safe(x.phone||findCustomer(x.customer,x.email)?.phone||"Not added")}<br>${safe(x.description)} · ${safe(x.status||"")}</small><br><b>${money(total(x))}</b>${type==="invoice"?`<br><small>Received: ${money(paidAmount(x))} · Due: ${money(dueAmount(x))}</small>`:""}</div><div>${type==="invoice"?`${dueAmount(x)>0?`<button class="green" onclick="recordPayment('${x.id}')">Add Payment</button>`:""}<button class="green" onclick="shareInvoice('${x.id}')">WhatsApp</button>`:""}<button class="gray" onclick="printDoc('${type}','${x.id}')">Print/PDF</button><button class="red" onclick="deleteItem('${type==="invoice"?"invoices":"quotes"}','${x.id}')">✕</button></div></div>`).join("")}
-let selectedCustomer=null;
-function openCustomer(key){let c=data.customers.find(v=>v.id===key);if(!c)return;selectedCustomer=key;let related=data.invoices.filter(x=>String(x.customer||"").trim().toLowerCase()===String(c.name||"").trim().toLowerCase()||(c.email&&String(x.email||"").trim().toLowerCase()===String(c.email).trim().toLowerCase()));let billed=related.reduce((s,x)=>s+total(x),0),paid=related.reduce((s,x)=>s+paidAmount(x),0),due=related.reduce((s,x)=>s+dueAmount(x),0);$("detailName").textContent=c.name;$("detailContact").textContent=[c.email,c.phone,c.country].filter(Boolean).join(" · ")||"No contact details";$("detailInvoices").textContent=related.length;$("detailBilled").textContent=money(billed);$("detailPaid").textContent=money(paid);$("detailDue").textContent=money(due);let sel=$("paymentInvoice");sel.innerHTML=related.filter(x=>dueAmount(x)>0).map(x=>`<option value="${safe(x.id)}">${safe(x.number)} · Due ${money(dueAmount(x))}</option>`).join("");if(!sel.options.length)sel.innerHTML='<option value="">No outstanding invoice</option>';$("paymentDate").value=today();$("paymentAmount").value="";$("paymentNote").value="";$("savePayment").disabled=!related.some(x=>dueAmount(x)>0);$("customerInvoiceHistory").innerHTML=related.length?related.map(x=>`<div class="card"><div class="row"><b>${safe(x.number)} · ${safe(x.status)}</b><b>${money(total(x))}</b></div><small>${safe(x.date)} · ${safe(x.description)}</small><p><b>Received:</b> ${money(paidAmount(x))} &nbsp; <b>Due:</b> ${money(dueAmount(x))}</p><div>${paymentHistoryHtml(x)}</div>${dueAmount(x)>0?`<button class="green" type="button" onclick="recordPayment('${x.id}')">Add Payment</button>`:""}</div>`).join(""):'<p class="muted">इस ग्राहक का अभी कोई Invoice नहीं है।</p>';$ ("customerDetail").classList.remove("hidden");$("customerDetail").scrollIntoView({behavior:"smooth",block:"start"})}
-function recordPayment(key){let x=data.invoices.find(v=>v.id===key);if(!x)return;let due=dueAmount(x);if(due<=0){alert("इस Invoice का पूरा भुगतान मिल चुका है।");return}let raw=prompt("कितनी रकम मिली? बाकी रकम: "+money(due),String(due));if(raw===null)return;let amount=Number(raw);if(!Number.isFinite(amount)||amount<=0||amount>due+0.001){alert("रकम सही लिखें। यह बाकी रकम से अधिक नहीं हो सकती।");return}let date=prompt("भुगतान की तारीख (YYYY-MM-DD):",today());if(date===null)return;if(!/^\d{4}-\d{2}-\d{2}$/.test(date)){alert("तारीख YYYY-MM-DD रूप में लिखें।");return}let note=prompt("Payment method / note (optional):","UPI / Cash")||"";if(!Array.isArray(x.payments)){x.payments=[];if(x.status==="Paid")x.payments.push({id:id(),date:x.date||today(),amount:total(x),note:"Earlier payment (legacy invoice)"})}x.payments.push({id:id(),date,amount,note});x.status=dueAmount(x)<=0.001?"Paid":"Partially Paid";save();if(selectedCustomer)openCustomer(selectedCustomer);alert("Payment history में रकम सेव हो गई।")}
-$("savePayment").onclick=()=>{let key=$("paymentInvoice").value;if(!key){alert("पहले बकाया Invoice चुनें।");return}let x=data.invoices.find(v=>v.id===key);if(!x)return;let amount=Number($("paymentAmount").value),due=dueAmount(x),date=$("paymentDate").value,note=$("paymentNote").value.trim();if(!Number.isFinite(amount)||amount<=0||amount>due+0.001){alert("रकम सही लिखें। बाकी रकम: "+money(due));return}if(!date){alert("भुगतान की तारीख चुनें।");return}if(!Array.isArray(x.payments)){x.payments=[];if(x.status==="Paid")x.payments.push({id:id(),date:x.date||today(),amount:total(x),note:"Earlier payment (legacy invoice)"})}x.payments.push({id:id(),date,amount,note});x.status=dueAmount(x)<=0.001?"Paid":"Partially Paid";save();openCustomer(selectedCustomer);alert("Payment saved successfully!")};
-$("closeCustomerDetail").onclick=()=>{$("customerDetail").classList.add("hidden");selectedCustomer=null};
-$("editCustomerContact").onclick=()=>{let c=data.customers.find(v=>v.id===selectedCustomer);if(!c)return;let phone=prompt("ग्राहक का WhatsApp / मोबाइल नंबर लिखें:",c.phone||"");if(phone===null)return;phone=phone.trim();if(phone&&!/^\+?[0-9 ()-]{10,20}$/.test(phone)){alert("कृपया सही मोबाइल नंबर लिखें। उदाहरण: +91 9876543210");return}c.phone=phone;data.invoices.forEach(x=>{if(String(x.customer||"").trim().toLowerCase()===String(c.name||"").trim().toLowerCase()|| (c.email&&String(x.email||"").trim().toLowerCase()===String(c.email).trim().toLowerCase()))x.phone=phone});save();openCustomer(c.id);alert("ग्राहक का मोबाइल नंबर सेव हो गया।")};
-$("customerSearch").oninput=renderCustomers;
-function renderCustomers(){let q=($("customerSearch").value||"").trim().toLowerCase(),arr=data.customers.filter(c=>[c.name,c.email,c.phone,c.country].some(v=>String(v||"").toLowerCase().includes(q)));$("customerList").innerHTML=arr.map(c=>`<div class="item"><div><b>${safe(c.name)}</b><br><small>${safe(c.email)} ${safe(c.phone||"Phone not added")} ${safe(c.country)}</small></div><div><button class="green" onclick="openCustomer('${c.id}')">History / Edit Phone</button> <button class="red" onclick="deleteItem('customers','${c.id}')">Delete</button></div></div>`).join("")||'<p class="muted">कोई ग्राहक नहीं मिला।</p>'}
-function render(){let sales=data.invoices.reduce((s,x)=>s+paidAmount(x),0),expenses=data.expenses.reduce((s,x)=>s+(Number(x.amount)||0),0),profit=sales-expenses;$("sales").textContent=money(sales);$("expenseTotal").textContent=money(expenses);$("profit").textContent=money(profit);$("customerTotal").textContent=data.customers.length;$("invoiceTotal").textContent=data.invoices.length;$("unpaidTotal").textContent=money(data.invoices.reduce((s,x)=>s+dueAmount(x),0));$("invoiceList").innerHTML=docs("invoice");$("quoteList").innerHTML=docs("quote");$("recent").innerHTML=data.invoices.slice(0,5).map(x=>`<div class="item"><span>${safe(x.customer)}<br><small>${safe(x.number)} · ${safe(x.status)}</small></span><b>${money(total(x))}</b></div>`).join("")||'<p class="muted">No invoices yet.</p>';renderCustomers();$("expenseList").innerHTML=data.expenses.map(x=>`<div class="item"><div><b>${safe(x.description)}</b><br><small>${safe(x.date)}</small></div><b>${money(x.amount)}</b><button class="red" onclick="deleteItem('expenses','${x.id}')">Delete</button></div>`).join("")||'<p>No expenses yet.</p>';$("rSales").textContent=money(sales);$("rExpenses").textContent=money(expenses);$("rProfit").textContent=money(profit);$("rInvoices").textContent=data.invoices.length;$("rCustomers").textContent=data.customers.length;$("rUnpaid").textContent=money(data.invoices.reduce((s,x)=>s+dueAmount(x),0));let max=Math.max(sales,expenses,1);$("salesBar").style.width=(sales/max*100)+"%";$("expenseBar").style.width=(expenses/max*100)+"%";if(selectedCustomer&&!$("customerDetail").classList.contains("hidden"))openCustomer(selectedCustomer)}
-$("backupBtn").onclick=()=>{let blob=new Blob([JSON.stringify({version:3.6,createdAt:new Date().toISOString(),data},null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="solobiz-backup-"+today()+".json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
-$("restoreBtn").onclick=()=>$("restoreFile").click();
-$("restoreFile").onchange=async e=>{let file=e.target.files[0];if(!file)return;try{let obj=JSON.parse(await file.text()),d=obj.data||obj;if(!Array.isArray(d.customers)||!Array.isArray(d.invoices)||!Array.isArray(d.expenses)||!Array.isArray(d.quotes))throw Error();if(!confirm("Restore करने पर वर्तमान डेटा बदल जाएगा। जारी रखें?"))return;data={...data,...d,profile:{...data.profile,...(d.profile||{})}};data.invoices.forEach(autoCustomer);save();profileFormFill();alert("Backup restored successfully!")}catch(err){alert("यह वैध SoloBiz Backup नहीं है।")}e.target.value=""};
-$("clearBtn").onclick=()=>{if(!confirm("क्या आपने Backup डाउनलोड किया है?"))return;if(!confirm("सभी ग्राहक, Invoice, Quotation और खर्च मिटा दिए जाएँगे। पुष्टि करें।"))return;data={profile:{name:"SoloBiz Services",phone:"",email:"",address:"",website:"",logo:""},customers:[],invoices:[],quotes:[],expenses:[]};selectedCustomer=null;$("customerDetail").classList.add("hidden");save();profileFormFill()};
-loadData();profileFormFill();render();
-</script>
-</body>
-</html>
+<div id="printArea" class="hidden"></div><footer>SoloBiz OS · Business Management · Version 3.7</footer>
